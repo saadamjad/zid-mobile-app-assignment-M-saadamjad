@@ -1,12 +1,12 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
-import {useNavigation} from '@react-navigation/native';
+import { StyleSheet, View } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import styled from '@emotion/native';
-import {getImage} from '../../../utils/image';
-import {Typography} from '../../../components/typography';
-import {RootStackParamList} from '../../../stack';
-import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {IListItem} from '../index';
+import { getImage } from '../../../utils/image';
+import { Typography } from '../../../components/typography';
+import { RootStackParamList } from '../../../stack';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { IListItem } from '../index';
 import { Avatar } from '../../../components/avatar';
 
 //
@@ -14,15 +14,15 @@ import { Avatar } from '../../../components/avatar';
 
 const thumbnailSize = 600;
 
-export const ListItem: React.FC<{item: IListItem}> = ({item}) => {
+export const ListItem: React.FC<{ item: IListItem }> = ({ item }) => {
   const nav =
     useNavigation<
       NativeStackNavigationProp<RootStackParamList, 'ListScreen'>
     >();
 
   return (
-    <ListItemContainer onPress={() => nav.navigate('Itemscreen', item)}>
-      <Avatar style={styles.image} source={{uri: getImage(thumbnailSize, item.id)}} />
+    <ListItemContainer onPress={() => nav.navigate('ItemScreen', item)}>
+      <Avatar style={styles.image} source={{ uri: getImage(thumbnailSize, item.id) }} />
 
       <View style={styles.flex}>
         <Typography weight="medium">{item.name}</Typography>

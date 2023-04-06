@@ -1,17 +1,17 @@
-import React, {useState} from 'react';
-import {Dimensions, ScrollView, Text, View} from 'react-native';
-import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
-import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import React, { useState } from 'react';
+import { Dimensions, ScrollView, Text, View } from 'react-native';
+import { RouteProp, useNavigation, useRoute } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import styled from '@emotion/native';
 
-import {faker} from '@faker-js/faker';
-import {RootStackParamList} from './stack';
-import {getImage} from './utils/image';
-import {Container} from './components/container';
-import {Typography} from './components/typography';
-import {DetailsLine} from './components/details-line';
-import {DetailsTitle} from './components/details-title';
-import {Cart} from './components/cart';
+import { faker } from '@faker-js/faker';
+import { RootStackParamList } from './stack';
+import { getImage } from './utils/image';
+import { Container } from './components/container';
+import { Typography } from './components/typography';
+import { DetailsLine } from './components/details-line';
+import { DetailsTitle } from './components/details-title';
+import { Cart } from './components/cart';
 
 //
 //
@@ -19,7 +19,7 @@ import {Cart} from './components/cart';
 const SPEC_1 = faker.color.human();
 const SPEC_2 = faker.vehicle.vin();
 const SPEC_3 = faker.commerce.product();
-const SPEC_4 = faker.datatype.float({min: 0.1, max: 10, precision: 0.1});
+const SPEC_4 = faker.datatype.float({ min: 0.1, max: 10, precision: 0.1 });
 
 //
 
@@ -28,9 +28,9 @@ export const Item = () => {
     useNavigation<
       NativeStackNavigationProp<RootStackParamList, 'ListScreen'>
     >();
-  const {params} = useRoute<RouteProp<RootStackParamList, 'ItemScreen'>>();
+  const { params } = useRoute<RouteProp<RootStackParamList, 'ItemScreen'>>();
 
-  const [quantity, setQuantity] = useState<number>(5);
+  const [quantity, setQuantity] = useState<number>(1);
 
   if (!params) {
     return <Typography>Loading ...</Typography>;
@@ -48,7 +48,7 @@ export const Item = () => {
       <ScrollView>
         <Container>
           <ItemImage
-            source={{uri: getImage(900, params.id)}}
+            source={{ uri: getImage(900, params.id) }}
             size={Dimensions.get('screen').width * 0.9}
           />
         </Container>
@@ -96,7 +96,7 @@ export const Item = () => {
 //
 //
 
-const ItemImage = styled.Image<{size: number}>(props => ({
+const ItemImage = styled.Image<{ size: number }>(props => ({
   width: props.size,
   height: props.size,
   marginVertical: 16,

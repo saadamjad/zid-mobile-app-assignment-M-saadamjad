@@ -1,7 +1,7 @@
-import React, {Dispatch, SetStateAction} from 'react';
+import React, { Dispatch, SetStateAction, useCallback } from 'react';
 import styled from '@emotion/native';
 
-import {Typography} from './typography';
+import { Typography } from './typography';
 
 //
 //
@@ -9,22 +9,31 @@ import {Typography} from './typography';
 export const CartQuantity: React.FC<{
   quantity: any;
   update: Dispatch<SetStateAction<number>>;
-}> = ({quantity, update}) => {
+}> = ({ quantity, update }) => {
+
+  const updateQuantity = useCallback(() => {   // useCallback used to prevent re-initiallization of the function
+    update(quantity + 1);
+  }, [quantity])
+
+  const decreaseQuantity = useCallback(() => {
+    quantity > 1 && update(quantity - 1);
+  }, [quantity])
+
   return (
     <QuantityContainer>
       <React.Fragment>
         <QuantityButton
-          onPress={() => update(quantity + 1)}
+          onPress={updateQuantity}
           underlayColor="#EDEBF2">
           <Typography color="#522973">+</Typography>
         </QuantityButton>
 
-        <Typography style={{textAlign: 'center', flex: 1}}>
+        <Typography style={{ textAlign: 'center', flex: 1 }}>
           {quantity}
         </Typography>
 
         <QuantityButton
-          onPress={() => update(quantity + 1)}
+          onPress={decreaseQuantity}
           underlayColor="#EDEBF2">
           <Typography color="#522973">-</Typography>
         </QuantityButton>
