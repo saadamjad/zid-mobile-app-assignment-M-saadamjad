@@ -8,7 +8,7 @@ import { Typography } from './typography';
 
 export const DetailsLine: React.FC<{
   label?: React.ReactNode;
-  children: string;
+  children: string | any;
 }> = ({ label, children }) => {
   return (
     <DetailsLineContainer>
