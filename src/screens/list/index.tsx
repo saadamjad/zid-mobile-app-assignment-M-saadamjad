@@ -9,7 +9,7 @@ import { ListItem } from './components/item';
 //
 
 export interface IListItem {
-  id: any;
+  id: string;
   name: string;
   description: String;
   price: string;
@@ -21,7 +21,7 @@ const ListScreen = () => {
   return (
     <SafeAreaView edges={['bottom']}>
       <ScrollView contentContainerStyle={{ padding: 0 }}>
-        {ListData.map((item: IListItem) => <ListItem key={item.id} item={item} />)}
+        {ListData.map(item => <ListItem key={item.id} item={item} />)}
       </ScrollView>
     </SafeAreaView>
   );

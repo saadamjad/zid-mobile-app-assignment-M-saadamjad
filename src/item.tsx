@@ -16,10 +16,10 @@ import { Cart } from './components/cart';
 //
 //
 
-const SPEC_1: string = faker.color.human();
-const SPEC_2: string = faker.vehicle.vin();
-const SPEC_3: string = faker.commerce.product();
-const SPEC_4: number = faker.datatype.float({ min: 0.1, max: 10, precision: 0.1 });
+const SPEC_1 = faker.color.human();
+const SPEC_2 = faker.vehicle.vin();
+const SPEC_3 = faker.commerce.product();
+const SPEC_4 = faker.datatype.float({ min: 0.1, max: 10, precision: 0.1 });
 
 //
 
