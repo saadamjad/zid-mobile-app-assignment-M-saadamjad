@@ -19,8 +19,8 @@ const ListScreen = () => {
   const copyListItems = [...ListData]
   const [listItems, setListItems] = useState<any>([...copyListItems.slice(0, 20)]);
   
-  const paginationFunction = useCallback(() => {
-    if (listItems.length < ListData.length) {
+  const handlePagination = useCallback(() => {
+    if (listItems?.length < ListData.length) {
       initialValue = lastIndexValue
       lastIndexValue = lastIndexValue + 20
       setListItems([...listItems, ...copyListItems.slice(initialValue, lastIndexValue)])
@@ -32,9 +32,9 @@ const ListScreen = () => {
     return <>
       <FlatList data={listItems}
         onEndReachedThreshold={1}
-        onEndReached={paginationFunction}
+        onEndReached={handlePagination}
         renderItem={({ item }) => (
-          <ListItem key={item.id} item={item} />
+          <ListItem key={item?.id} item={item} />
         )} />
     </>
   }

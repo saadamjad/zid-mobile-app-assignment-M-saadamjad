@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useLayoutEffect, useState } from 'react';
 import { Dimensions, ScrollView } from 'react-native';
 import { RouteProp, useNavigation, useRoute } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
@@ -72,9 +72,16 @@ const renderCartControls = (quantity: number, setQuantity: any) => {
 
 export const Item = () => {
   const nav =
-    useNavigation<
-      NativeStackNavigationProp<RootStackParamList, 'ListScreen'>
-    >();
+  useNavigation<
+    NativeStackNavigationProp<RootStackParamList, 'ListScreen'>
+  >();
+  
+  useLayoutEffect(() => {
+    nav.setOptions({
+      title: params?.name,
+    });
+  }, []);
+ 
 
   const { params } = useRoute<RouteProp<RootStackParamList, 'ItemScreen'>>();
 
@@ -84,9 +91,7 @@ export const Item = () => {
     return <Typography>Loading ...</Typography>;
   }
 
-  nav.setOptions({
-    title: params.name,
-  });
+ 
 
 
 

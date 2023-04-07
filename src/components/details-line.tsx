@@ -3,8 +3,6 @@ import styled from '@emotion/native';
 
 import { Typography } from './typography';
 
-//
-//
 
 export const DetailsLine: React.FC<{
   label?: React.ReactNode;
@@ -20,8 +18,6 @@ export const DetailsLine: React.FC<{
   );
 };
 
-//
-//
 
 const DetailsLineContainer = styled.View({
   marginVertical: 5,

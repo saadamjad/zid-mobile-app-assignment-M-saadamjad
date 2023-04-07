@@ -19,16 +19,16 @@ export const ListItem: React.FC<{ item: IListItem }> = ({ item }) => {
     >();
 
   const renderItemPrices = useCallback(() => {
-    if (item.salePrice) {
+    if (item?.salePrice) {
       return (
         <Typography color="#DA2121">
-          <Typography style={item.salePrice ? styles.discounted : undefined}>SAR {item.price}</Typography>
-          {'  '}SAR {item.salePrice}
+          <Typography style={item?.salePrice ? styles.discounted : undefined}>SAR {item?.price}</Typography>
+          {'  '}SAR {item?.salePrice}
         </Typography>
       );
     }
 
-    return <Typography style={item.salePrice ? styles.discounted : undefined}>SAR {item.price}</Typography>
+    return <Typography style={item?.salePrice ? styles.discounted : undefined}>SAR {item?.price}</Typography>
   }, [item.salePrice, item.price])
 
   const navigateToITemScreen = () => {
@@ -37,7 +37,7 @@ export const ListItem: React.FC<{ item: IListItem }> = ({ item }) => {
 
   return (
     <ListItemContainer onPress={navigateToITemScreen}>
-      <Avatar style={styles.image} source={{ uri: getImage(thumbnailSize, item.id) }} />
+      <Avatar style={styles.image}   source={{ uri: getImage(thumbnailSize, item.id) }} />
       <View style={styles.flex}>
         <Typography weight="medium">{item.name}</Typography>
         {renderItemPrices()}
