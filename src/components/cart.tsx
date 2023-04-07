@@ -5,28 +5,39 @@ import { Container } from './container';
 import { CartQuantity } from './cart-quantity';
 import { Typography } from './typography';
 import { Alert } from 'react-native';
+import { useCallback } from 'react';
 
-//
-//
+
+const colorWhite = 'white';
+
+const buyNowButton = () => {
+  Alert.alert('', 'WiP button')
+}
+
 
 export const Cart: React.FC<any> = ({ quantity, update }) => {
   const insets = useSafeAreaInsets();
 
+  const renderBuyButton = useCallback(() => {
+    return <BuyButton
+      onPress={buyNowButton}
+      underlayColor={colorWhite}>
+      <Typography color={colorWhite}>Buy Now</Typography>
+    </BuyButton>
+  }, [buyNowButton])
+
+  const renderQuantity = useCallback(() => {
+    return <CartQuantity quantity={quantity} update={update} />
+
+  }, [quantity, update])
+
   return (
     <CartContainer style={{ paddingBottom: Math.max(insets.bottom, 20) }}>
-      <BuyButton
-        onPress={() => Alert.alert('', 'WiP button')}
-        underlayColor="white">
-        <Typography color="white">Buy Now</Typography>
-      </BuyButton>
-
-      <CartQuantity quantity={quantity} update={update} />
+      {renderBuyButton()}
+      {renderQuantity()}
     </CartContainer>
   );
 };
-
-//
-//
 
 const CartContainer = styled(Container)({
   backgroundColor: 'white',

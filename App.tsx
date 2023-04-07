@@ -3,8 +3,6 @@ import {NavigationContainer} from '@react-navigation/native';
 
 import Stack from './src/stack';
 
-//
-//
 
 const App = () => {
   return (
@@ -14,4 +12,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default  React.memo(App);

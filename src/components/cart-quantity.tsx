@@ -3,8 +3,9 @@ import styled from '@emotion/native';
 
 import { Typography } from './typography';
 
-//
-//
+
+const underlayColorBlack = '#EDEBF2'
+const purpleColor = '#522973'
 
 export const CartQuantity: React.FC<{
   quantity: any;
@@ -24,26 +25,23 @@ export const CartQuantity: React.FC<{
       <React.Fragment>
         <QuantityButton
           onPress={updateQuantity}
-          underlayColor="#EDEBF2">
-          <Typography color="#522973">+</Typography>
+          underlayColor={underlayColorBlack}>
+          <Typography color={purpleColor}>+</Typography>
         </QuantityButton>
 
         <Typography style={{ textAlign: 'center', flex: 1 }}>
           {quantity}
         </Typography>
 
-        <QuantityButton
-          onPress={decreaseQuantity}
-          underlayColor="#EDEBF2">
-          <Typography color="#522973">-</Typography>
+        <QuantityButton onPress={decreaseQuantity} underlayColor={underlayColorBlack}>
+          <Typography color={purpleColor}>-</Typography>
         </QuantityButton>
       </React.Fragment>
     </QuantityContainer>
   );
 };
 
-//
-//
+
 
 const QuantityButton = styled.TouchableHighlight({
   alignItems: 'center',
